@@ -1,0 +1,2006 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Chocolates | ChocoHub</title>
+<meta name="description" content="Explore homemade milk, dark, white chocolates, truffles, gift boxes and customized chocolates at ChocoHub.">
+
+<style>
+:root {
+    --dark: #32170d;
+    --brown: #59301f;
+    --gold: #d9a44b;
+    --cream: #fff8ee;
+    --white: #ffffff;
+    --muted: #78665a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+/* NAVIGATION */
+
+header {
+    background: var(--dark);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px #32170d20;
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+.logo span {
+    color: white;
+}
+
+.tagline {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #e6d2bd;
+    font-family: Arial, sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 14px;
+    transition: color .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.current {
+    color: var(--gold);
+}
+
+.cart-button {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 26px;
+}
+
+/* HERO BANNER */
+
+.hero {
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+        linear-gradient(90deg,
+            rgba(36,15,7,.96),
+            rgba(36,15,7,.76) 50%,
+            rgba(36,15,7,.12)),
+        url("https://images.unsplash.com/photo-1548907040-4d42f8a6a1c5?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding: 65px 0;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 6vw, 67px);
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 530px;
+    color: #f3e6db;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    border-radius: 25px;
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: bold;
+    border: 1px solid var(--gold);
+    transition: .25s;
+}
+
+.btn:hover {
+    background: white;
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* COMMON SECTION HEADINGS */
+
+.section {
+    padding: 65px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font: bold clamp(29px, 4vw, 40px) Georgia, serif;
+    margin: 7px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+    max-width: 620px;
+    margin: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+/* CATEGORY CARDS */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.category-card {
+    border: 1px solid #ead9c5;
+    border-radius: 12px;
+    background: white;
+    overflow: hidden;
+    text-align: center;
+    transition: .25s;
+    cursor: pointer;
+}
+
+.category-card:hover,
+.category-card.active {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #32170d12;
+}
+
+.category-card img {
+    display: block;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    font-size: 14px;
+    padding: 12px 5px 0;
+}
+
+.category-card p {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 0 5px 12px;
+}
+
+/* FEATURED FILTERS */
+
+.filter-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.filter-btn {
+    padding: 9px 17px;
+    border: 1px solid #e3d2bf;
+    background: white;
+    border-radius: 25px;
+    color: var(--dark);
+    font-size: 13px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--dark);
+    color: white;
+    border-color: var(--dark);
+}
+
+/* PRODUCT CARDS */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #eee0d0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px #32170d08;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #32170d18;
+}
+
+.product-image {
+    position: relative;
+    height: 235px;
+    background: #ead9c7;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+.product-badge {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    background: var(--gold);
+    color: var(--dark);
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.product-info {
+    padding: 19px;
+}
+
+.product-info h3 {
+    font: bold 21px Georgia, serif;
+    margin-bottom: 7px;
+}
+
+.product-info .description {
+    color: var(--muted);
+    font-size: 14px;
+    min-height: 65px;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.price {
+    font-size: 22px;
+    color: var(--brown);
+    font-weight: bold;
+}
+
+.product-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.details-btn,
+.add-btn {
+    padding: 10px 7px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.details-btn {
+    border: 1px solid var(--brown);
+    background: white;
+    color: var(--brown);
+}
+
+.details-btn:hover {
+    background: #f7ead9;
+}
+
+.add-btn {
+    background: var(--dark);
+    color: white;
+    border: 1px solid var(--dark);
+}
+
+.add-btn:hover {
+    background: var(--gold);
+    color: var(--dark);
+    border-color: var(--gold);
+}
+
+.no-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+}
+
+/* CUSTOM CHOCOLATE SECTION */
+
+.custom-section {
+    padding: 65px 0;
+    background: #f2e3cf;
+}
+
+.custom-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.custom-image {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 12px 12px 0 #dfc08e;
+}
+
+.custom-copy h2 {
+    font: bold 38px Georgia, serif;
+    line-height: 1.2;
+    margin: 10px 0 15px;
+}
+
+.custom-copy p {
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.custom-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d8c3aa;
+    border-radius: 7px;
+    background: white;
+    color: var(--dark);
+    outline-color: var(--gold);
+}
+
+.form-group textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.checkbox-row input {
+    width: auto;
+}
+
+.custom-total {
+    font-weight: bold;
+    color: var(--brown);
+    margin-top: 5px;
+}
+
+/* OFFERS */
+
+.offers {
+    padding: 60px 0;
+    background: var(--dark);
+    color: white;
+}
+
+.offers .section-heading p {
+    color: #e2cbb9;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.offer-card {
+    text-align: center;
+    background: var(--cream);
+    color: var(--dark);
+    border-radius: 12px;
+    padding: 24px 14px;
+    transition: .25s;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+}
+
+.offer-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.offer-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.offer-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 13px;
+}
+
+.offer-card a {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* PRODUCT INFORMATION */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.info-item {
+    padding: 18px;
+    border-left: 3px solid var(--gold);
+    background: white;
+    border-radius: 0 8px 8px 0;
+}
+
+.info-item h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.info-item p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* CART PANEL */
+
+.cart-panel {
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    right: -430px;
+    width: min(410px, 100%);
+    height: 100vh;
+    background: white;
+    box-shadow: -8px 0 30px #0002;
+    padding: 25px;
+    transition: right .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee0d0;
+}
+
+.cart-header h2 {
+    font: bold 26px Georgia, serif;
+}
+
+.close-cart {
+    border: none;
+    background: transparent;
+    font-size: 27px;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 0;
+}
+
+.cart-item {
+    padding: 13px 0;
+    border-bottom: 1px solid #eee0d0;
+}
+
+.cart-item h3 {
+    font-size: 15px;
+}
+
+.cart-item p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.cart-item button {
+    border: none;
+    color: #9b3828;
+    background: transparent;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.cart-footer {
+    padding-top: 15px;
+    border-top: 1px solid #eee0d0;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.cart-footer .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.cart-note {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0007;
+    z-index: 150;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* DETAILS MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: #0008;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    width: min(550px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    position: relative;
+}
+
+.modal-content h2 {
+    font: bold 27px Georgia, serif;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.modal-close {
+    position: absolute;
+    right: 17px;
+    top: 12px;
+    border: none;
+    background: transparent;
+    font-size: 26px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #241006;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 35px;
+    padding-bottom: 25px;
+}
+
+.footer-grid h3 {
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.footer-grid p,
+.footer-grid a {
+    color: #dfcbbd;
+    font-size: 14px;
+}
+
+.footer-grid li {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #563829;
+    padding-top: 18px;
+    text-align: center;
+    color: #cbb8aa;
+    font-size: 13px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .offer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .custom-grid {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        min-height: 70px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 15px 5%;
+        background: var(--dark);
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 8px 0;
+        font-size: 15px;
+    }
+
+    .cart-button {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 460px;
+        background-position: 65% center;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .section {
+        padding: 48px 0;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .category-card img {
+        height: 115px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 240px;
+    }
+
+    .custom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .custom-image {
+        height: 280px;
+    }
+
+    .custom-copy h2 {
+        font-size: 32px;
+    }
+
+    .custom-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .offer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 360px) {
+    .category-grid,
+    .offer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            Choco<span>Hub</span>
+            <span class="tagline">Homemade Chocolates. Pure Happiness.</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home </a></li>
+                <li><a href="products.html" class="current">Products</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <button class="cart-button" id="openCart">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </button>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO BANNER -->
+
+<section class="hero">
+    <div class="container hero-content">
+        <span class="eyebrow">Handcrafted • Premium • Homemade</span>
+
+        <h1>Explore Our<br><span>Chocolates</span></h1>
+
+        <p>
+            At ChocoHub, we create homemade chocolates with love.
+            From classic favourites to unique flavours, every bite
+            is a little moment of happiness.
+        </p>
+
+        <a href="#products" class="btn">Shop Chocolates →</a>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">Find Your Favourite</span>
+            <h2>Shop by Category</h2>
+            <p>Discover the chocolate styles you love, crafted for your sweetest moments.</p>
+        </div>
+
+        <div class="category-grid">
+
+            <article class="category-card" data-category="milk">
+                <img src="https://images.unsplash.com/photo-1548907040-4d42f8a6a1c5?auto=format&fit=crop&w=500&q=80"
+                     alt="Milk chocolate pieces" loading="lazy">
+                <h3>Milk Chocolates</h3>
+                <p>Creamy & Classic</p>
+            </article>
+
+            <article class="category-card" data-category="dark">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80"
+                     alt="Dark chocolate" loading="lazy">
+                <h3>Dark Chocolates</h3>
+                <p>Rich & Intense</p>
+            </article>
+
+            <article class="category-card" data-category="white">
+                <img src="https://images.unsplash.com/photo-1582176604856-e824b4736522?auto=format&fit=crop&w=500&q=80"
+                     alt="White chocolate treats" loading="lazy">
+                <h3>White Chocolates</h3>
+                <p>Smooth & Sweet</p>
+            </article>
+
+            <article class="category-card" data-category="truffle">
+                <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80"
+                     alt="Chocolate truffles" loading="lazy">
+                <h3>Chocolate Truffles</h3>
+                <p>Decadent & Luxurious</p>
+            </article>
+
+            <article class="category-card" data-category="gift">
+                <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=500&q=80"
+                     alt="Chocolate gift box" loading="lazy">
+                <h3>Chocolate Gift Boxes</h3>
+                <p>Perfect for Every Occasion</p>
+            </article>
+
+            <article class="category-card" data-category="custom">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80"
+                     alt="Customized chocolate selection" loading="lazy">
+                <h3>Customized Chocolates</h3>
+                <p>Make It Personal</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+
+<section class="section" id="products" style="padding-top: 10px;">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">Made to Make You Smile</span>
+            <h2>Our Chocolate Collection</h2>
+            <p>Explore our featured treats, new arrivals, and thoughtful gift collections.</p>
+        </div>
+
+        <div class="filter-list" aria-label="Filter products">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="bestseller">Bestsellers</button>
+            <button class="filter-btn" data-filter="new">New Arrivals</button>
+            <button class="filter-btn" data-filter="gift">Gift Collections</button>
+            <button class="filter-btn" data-filter="festival">Festival Offers</button>
+            <button class="filter-btn" data-filter="combo">Combo Packs</button>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+            <!-- PRODUCT 1 -->
+
+            <article class="product-card"
+                     data-category="gift"
+                     data-tags="bestseller gift"
+                     data-name="Gourmet Chocolate Gift Box"
+                     data-price="799"
+                     data-weight="24 pieces">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80"
+                         alt="Assorted chocolate gift box" loading="lazy">
+                    <span class="product-badge">Bestseller</span>
+                </div>
+
+                <div class="product-info">
+                    <h3>Gourmet Chocolate Gift Box</h3>
+                    <p class="description">An elegant assortment of handcrafted chocolates for sharing and gifting.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹799</span>
+                        <span>24 pieces</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product-card"
+                     data-category="truffle"
+                     data-tags="bestseller"
+                     data-name="Classic Chocolate Truffles"
+                     data-price="249"
+                     data-weight="100 g">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80"
+                         alt="Classic chocolate truffles" loading="lazy">
+                    <span class="product-badge">Bestseller</span>
+                </div>
+
+                <div class="product-info">
+                    <h3>Classic Chocolate Truffles</h3>
+                    <p class="description">Rich, velvety chocolate bites with a smooth and indulgent centre.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹249</span>
+                        <span>100 g</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product-card"
+                     data-category="milk"
+                     data-tags="new"
+                     data-name="Velvet Milk Chocolate Bar"
+                     data-price="149"
+                     data-weight="100 g">
+
+                <div class="product-image">
+                    <img src="https://www.dylanscandybar.com/cdn/shop/files/20211216-By-Asha-Fuller-DCB-Red-Velvet-0119-Z_8a5a5c32-22bb-4011-9cbb-7eaf794d93df.jpg?v=1755805404&width=750"
+                         alt="Milk chocolate bar" loading="lazy">
+                    <span class="product-badge">New Arrival</span>
+                </div>
+
+                <div class="product-info">
+                    <h3>Velvet Milk Chocolate Bar</h3>
+                    <p class="description">A creamy, smooth homemade classic for your everyday chocolate cravings.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹149</span>
+                        <span>100 g</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 4 -->
+
+            <article class="product-card"
+                     data-category="white"
+                     data-tags="new"
+                     data-name="White Chocolate Delight"
+                     data-price="179"
+                     data-weight="100 g">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1582176604856-e824b4736522?auto=format&fit=crop&w=800&q=80"
+                         alt="White chocolate pieces" loading="lazy">
+                    <span class="product-badge">New Arrival</span>
+                </div>
+
+                <div class="product-info">
+                    <h3>White Chocolate Delight</h3>
+                    <p class="description">Sweet, creamy white chocolate for a delicate and delightful treat.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹179</span>
+                        <span>100 g</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 5 -->
+
+            <article class="product-card"
+                     data-category="custom"
+                     data-tags="gift"
+                     data-name="Personalized Chocolate Hearts"
+                     data-price="399"
+                     data-weight="12 pieces">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80"
+                         alt="Personalized chocolate treats" loading="lazy">
+                    <span class="product-badge">Gift Special</span>
+                </div>
+
+                <div class="product-info">
+                    <h3>Personalized Chocolate Hearts</h3>
+                    <p class="description">A thoughtful chocolate gift with an option to personalize your message.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹399</span>
+                        <span>12 pieces</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 6 -->
+
+            <article class="product-card"
+                     data-category="gift"
+                     data-tags="festival combo"
+                     data-name="Festive Chocolate Combo"
+                     data-price="599"
+                     data-weight="300 g">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80"
+                         alt="Festive chocolate assortment" loading="lazy">
+                    <span class="product-badge">Special Offer</span>
+                </div>
+
+                <div class="product-info">
+                    <h3>Festive Chocolate Combo</h3>
+                    <p class="description">A cheerful selection of chocolate favourites for festivals and celebrations.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹599</span>
+                        <span>300 g</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 7 -->
+
+            <article class="product-card"
+                     data-category="dark"
+                     data-tags="bestseller"
+                     data-name="Intense Dark Chocolate"
+                     data-price="199"
+                     data-weight="100 g">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80"
+                         alt="Dark chocolate pieces" loading="lazy">
+                </div>
+
+                <div class="product-info">
+                    <h3>Intense Dark Chocolate</h3>
+                    <p class="description">Deep cocoa flavour for chocolate lovers who prefer a less-sweet taste.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹199</span>
+                        <span>100 g</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 8 -->
+
+            <article class="product-card"
+                     data-category="milk"
+                     data-tags="combo"
+                     data-name="Milk Chocolate Crunch"
+                     data-price="229"
+                     data-weight="150 g">
+
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgLnb2wPFcyTA80HMXSfvIjk5t1CCA-wTc9GLpLl8WVA&s=10"
+                         alt="Milk chocolate crunch treats" loading="lazy">
+                </div>
+
+                <div class="product-info">
+                    <h3>Milk Chocolate Crunch</h3>
+                    <p class="description">Creamy milk chocolate with a satisfying crunchy texture.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹229</span>
+                        <span>150 g</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PRODUCT 9 -->
+
+            <article class="product-card"
+                     data-category="custom"
+                     data-tags="gift festival"
+                     data-name="Make Your Own Chocolate Box"
+                     data-price="499"
+                     data-weight="200 g">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80"
+                         alt="Chocolate gift selection" loading="lazy">
+                    <span class="product-badge">Make It Yours</span>
+                </div>
+
+                <div class="product-info">
+                    <h3>Make Your Own Chocolate Box</h3>
+                    <p class="description">Create a personalized chocolate box for someone truly special.</p>
+
+                    <div class="product-meta">
+                        <span class="price">₹499</span>
+                        <span>200 g</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="details-btn">View Details</button>
+                        <button class="add-btn">🛒 Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- CUSTOMIZATION -->
+
+<section class="custom-section" id="customize">
+    <div class="container custom-grid">
+
+        <div>
+            <img class="custom-image"
+                 src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=85"
+                 alt="Chocolate gift box for customization"
+                 loading="lazy">
+        </div>
+
+        <div class="custom-copy">
+            <span class="eyebrow">Made Especially for You</span>
+            <h2>Create Your Own Chocolate Box</h2>
+
+            <p>
+                Choose your favourite chocolate type, box size, quantity,
+                gift wrapping, and a personal message to create a
+                memorable gift.
+            </p>
+
+            <form class="custom-form" id="customForm">
+
+                <div class="form-group">
+                    <label for="chocolateType">1. Chocolate Type</label>
+                    <select id="chocolateType">
+                        <option value="Milk Chocolate">Milk Chocolate</option>
+                        <option value="Dark Chocolate">Dark Chocolate</option>
+                        <option value="White Chocolate">White Chocolate</option>
+                        <option value="Mixed Chocolates">Mixed Chocolates</option>
+                        <option value="Chocolate Truffles">Chocolate Truffles</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="boxSize">2. Box Size</label>
+                    <select id="boxSize">
+                        <option value="Small" data-price="249">Small — 6 pieces (₹249)</option>
+                        <option value="Medium" data-price="449">Medium — 12 pieces (₹449)</option>
+                        <option value="Large" data-price="799">Large — 24 pieces (₹799)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="customQuantity">3. Quantity</label>
+                    <input type="number" id="customQuantity"
+                           min="1" max="50" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="wrapping">4. Gift Wrapping</label>
+                    <select id="wrapping">
+                        <option value="No" data-price="0">No gift wrap</option>
+                        <option value="Yes" data-price="50">Yes (+₹50 per box)</option>
+                    </select>
+                </div>
+
+                <div class="form-group full">
+                    <label for="personalMessage">5. Personalized Message</label>
+                    <textarea id="personalMessage" maxlength="100"
+                              placeholder="Example: Made with love, just for you!"></textarea>
+                </div>
+
+                <div class="form-group full">
+                    <p class="custom-total">
+                        Estimated total: <span id="customTotal">₹249</span>
+                    </p>
+
+                    <button type="submit" class="btn">
+                        🛒 Add Customized Box to Cart
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- OFFERS -->
+
+<section class="offers" id="offers">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">A Little Extra Sweetness</span>
+            <h2>Special Offers & Highlights</h2>
+            <p>Find something special for every chocolate lover and every occasion.</p>
+        </div>
+
+        <div class="offer-grid">
+
+            <article class="offer-card">
+                <div class="offer-icon">👑</div>
+                <h3>Bestsellers</h3>
+                <p>Discover our most-loved chocolate favourites.</p>
+                <a href="#products" data-offer="bestseller">Shop Now →</a>
+            </article>
+
+            <article class="offer-card">
+                <div class="offer-icon">✨</div>
+                <h3>New Arrivals</h3>
+                <p>Explore new creations and delicious ideas.</p>
+                <a href="#products" data-offer="new">Shop Now →</a>
+            </article>
+
+            <article class="offer-card">
+                <div class="offer-icon">🎁</div>
+                <h3>Gift Collections</h3>
+                <p>Thoughtful treats for your special occasions.</p>
+                <a href="#products" data-offer="gift">Shop Now →</a>
+            </article>
+
+            <article class="offer-card">
+                <div class="offer-icon">🎉</div>
+                <h3>Festival Offers</h3>
+                <p>Make celebrations sweeter with chocolate gifts.</p>
+                <a href="#products" data-offer="festival">Shop Now →</a>
+            </article>
+
+            <article class="offer-card">
+                <div class="offer-icon">🍫</div>
+                <h3>Combo Packs</h3>
+                <p>Enjoy a mix of favourites in one box.</p>
+                <a href="#products" data-offer="combo">Shop Now →</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT INFORMATION -->
+
+<section class="section" id="product-info">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">Know What You're Enjoying</span>
+            <h2>Product Information</h2>
+            <p>Important details to check before enjoying or gifting our chocolates.</p>
+        </div>
+
+        <div class="info-grid">
+
+            <article class="info-item">
+                <h3>🍫 Ingredients</h3>
+                <p>
+                    Depending on the product, ingredients may include
+                    cocoa, cocoa butter, sugar, milk solids, and permitted
+                    flavourings or inclusions. Check the actual product label
+                    for its complete ingredient list.
+                </p>
+            </article>
+
+            <article class="info-item">
+                <h3>⚠️ Allergen Warning</h3>
+                <p>
+                    Some varieties may contain milk, soy, nuts, or other
+                    allergens. Cross-contact may also be possible.
+                    Confirm the specific ingredients and allergen declaration
+                    for each batch before publishing.
+                </p>
+            </article>
+
+            <article class="info-item">
+                <h3>🌡️ Storage Instructions</h3>
+                <p>
+                    Store in a cool, dry place away from sunlight and
+                    strong odours. Follow the temperature and storage
+                    directions printed on the actual product packaging.
+                </p>
+            </article>
+
+            <article class="info-item">
+                <h3>📅 Shelf Life</h3>
+                <p>
+                    Shelf life varies by recipe, fillings, packaging,
+                    and storage conditions. Refer to the verified
+                    best-before date on each product label.
+                </p>
+            </article>
+
+            <article class="info-item">
+                <h3>🏷️ Manufacturing Details</h3>
+                <p>
+                    Before sale, display the actual manufacturer's name
+                    and address, batch or lot number, manufacturing or
+                    packing date as applicable, and required food-label
+                    details.
+                </p>
+            </article>
+
+            <article class="info-item">
+                <h3>📦 Best Before</h3>
+                <p>
+                    Check the date printed on the package before consuming.
+                    Do not use a generic date on this website as a substitute
+                    for the actual product label.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <a href="index.html" class="logo">Choco<span>Hub</span> 🍫</a>
+                <p style="margin-top: 12px;">
+                    Homemade chocolates. Pure happiness.
+                    Every bite tells a sweeter story.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Our Products</a></li>
+                    <li><a href="#customize">Custom Orders</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li><a href="#product-info">Product Information</a></li>
+                    <li><a href="#offers">Offers & Gifts</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> ChocoHub. Made with ❤️ and chocolate.
+        </div>
+
+    </div>
+</footer>
+
+<!-- CART PANEL -->
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-panel" id="cartPanel"
+       role="dialog" aria-modal="true" aria-label="Shopping cart">
+
+    <div class="cart-header">
+        <h2>Your Cart 🛒</h2>
+        <button class="close-cart" id="closeCart"
+                aria-label="Close cart">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <p>Your cart is empty. Let's add something sweet!</p>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total</span>
+            <span id="cartTotal">₹0</span>
+        </div>
+
+        <button class="btn" id="checkoutButton">Continue to Enquiry</button>
+
+        <p class="cart-note">
+            This demo cart does not process payments or save orders to a server.
+        </p>
+    </div>
+
+</aside>
+
+<!-- PRODUCT DETAILS MODAL -->
+
+<div class="modal" id="detailsModal" role="dialog"
+     aria-modal="true" aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+        <button class="modal-close" id="closeModal"
+                aria-label="Close details">×</button>
+
+        <h2 id="modalTitle">Product Details</h2>
+        <p id="modalDescription"></p>
+        <p><strong>Price:</strong> <span id="modalPrice"></span></p>
+        <p><strong>Quantity:</strong> <span id="modalWeight"></span></p>
+        <p><strong>Ingredients:</strong> Check the product's actual ingredient label.</p>
+        <p><strong>Allergens:</strong> Refer to the package for the specific allergen declaration.</p>
+        <p><strong>Storage:</strong> Follow the instructions printed on the product packaging.</p>
+        <p><strong>Shelf life:</strong> Check the verified best-before date on the package.</p>
+
+        <button class="btn" id="modalAddButton">Add to Cart</button>
+    </div>
+</div>
+
+<script>
+// MOBILE MENU
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+
+    const expanded = navLinks.classList.contains("show");
+    menuToggle.setAttribute("aria-expanded", expanded);
+    menuToggle.textContent = expanded ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+    });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+
+// CATEGORY FILTERING
+
+const categoryCards = document.querySelectorAll(".category-card");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const productCards = document.querySelectorAll(".product-card");
+
+function filterProducts(filter) {
+    filterButtons.forEach(button => {
+        button.classList.toggle("active", button.dataset.filter === filter);
+    });
+
+    categoryCards.forEach(card => {
+        card.classList.remove("active");
+    });
+
+    let visibleCount = 0;
+
+    productCards.forEach(card => {
+        const categoryMatch =
+            filter === "all" ||
+            card.dataset.category === filter;
+
+        const tagMatch =
+            card.dataset.tags.split(" ").includes(filter);
+
+        const show =
+            categoryMatch || tagMatch;
+
+        card.style.display = show ? "" : "none";
+
+        if (show) visibleCount++;
+    });
+
+    let emptyMessage = document.getElementById("emptyMessage");
+
+    if (!emptyMessage) {
+        emptyMessage = document.createElement("p");
+        emptyMessage.id = "emptyMessage";
+        emptyMessage.className = "no-products";
+        emptyMessage.textContent = "No products in this collection yet.";
+        document.getElementById("productGrid").appendChild(emptyMessage);
+    }
+
+    emptyMessage.style.display = visibleCount ? "none" : "block";
+}
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        filterProducts(button.dataset.filter);
+    });
+});
+
+categoryCards.forEach(card => {
+    card.addEventListener("click", () => {
+        const category = card.dataset.category;
+
+        categoryCards.forEach(item => item.classList.remove("active"));
+        card.classList.add("active");
+
+        filterProducts(category);
+
+        document.getElementById("products").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+
+document.querySelectorAll("[data-offer]").forEach(link => {
+    link.addEventListener("click", () => {
+        filterProducts(link.dataset.offer);
+    });
+});
+
+
+// SHOPPING CART
+
+let cart = [];
+
+const cartPanel = document.getElementById("cartPanel");
+const overlay = document.getElementById("overlay");
+const cartItems = document.getElementById("cartItems");
+
+function openCart() {
+    cartPanel.classList.add("open");
+    overlay.classList.add("show");
+}
+
+function closeCart() {
+    cartPanel.classList.remove("open");
+    overlay.classList.remove("show");
+}
+
+document.getElementById("openCart").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+overlay.addEventListener("click", closeCart);
+
+function addToCart(name, price, quantity = 1, description = "") {
+    const existing = cart.find(item =>
+        item.name === name && item.description === description
+    );
+
+    if (existing) {
+        existing.quantity += quantity;
+    } else {
+        cart.push({
+            name,
+            price,
+            quantity,
+            description
+        });
+    }
+
+    renderCart();
+}
+
+function renderCart() {
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartItems.innerHTML =
+            "<p>Your cart is empty. Let's add something sweet!</p>";
+    }
+
+    let total = 0;
+    let count = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+
+        const row = document.createElement("div");
+        row.className = "cart-item";
+
+        const heading = document.createElement("h3");
+        heading.textContent = item.name;
+
+        const details = document.createElement("p");
+        details.textContent =
+            "₹" + item.price + " × " + item.quantity +
+            (item.description ? " · " + item.description : "");
+
+        const remove = document.createElement("button");
+        remove.textContent = "Remove item";
+        remove.addEventListener("click", () => {
+            cart.splice(index, 1);
+            renderCart();
+        });
+
+        row.append(heading, details, remove);
+        cartItems.appendChild(row);
+    });
+
+    document.getElementById("cartCount").textContent = count;
+    document.getElementById("cartTotal").textContent =
+        "₹" + total.toLocaleString("en-IN");
+}
+
+document.querySelectorAll(".add-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const card = button.closest(".product-card");
+
+        addToCart(
+            card.dataset.name,
+            Number(card.dataset.price),
+            1,
+            card.dataset.weight
+        );
+
+        button.textContent = "✓ Added!";
+        openCart();
+
+        setTimeout(() => {
+            button.textContent = "🛒 Add to Cart";
+        }, 1000);
+    });
+});
+
+
+// PRODUCT DETAILS MODAL
+
+const modal = document.getElementById("detailsModal");
+let selectedProduct = null;
+
+document.querySelectorAll(".details-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const card = button.closest(".product-card");
+
+        selectedProduct = {
+            name: card.dataset.name,
+            price: Number(card.dataset.price),
+            weight: card.dataset.weight,
+            description: card.querySelector(".description").textContent
+        };
+
+        document.getElementById("modalTitle").textContent =
+            selectedProduct.name;
+
+        document.getElementById("modalDescription").textContent =
+            selectedProduct.description;
+
+        document.getElementById("modalPrice").textContent =
+            "₹" + selectedProduct.price;
+
+        document.getElementById("modalWeight").textContent =
+            selectedProduct.weight;
+
+        modal.classList.add("open");
+    });
+});
+
+document.getElementById("closeModal").addEventListener("click", () => {
+    modal.classList.remove("open");
+});
+
+modal.addEventListener("click", event => {
+    if (event.target === modal) {
+        modal.classList.remove("open");
+    }
+});
+
+document.getElementById("modalAddButton").addEventListener("click", () => {
+    if (!selectedProduct) return;
+
+    addToCart(
+        selectedProduct.name,
+        selectedProduct.price,
+        1,
+        selectedProduct.weight
+    );
+
+    modal.classList.remove("open");
+    openCart();
+});
+
+
+// CUSTOM CHOCOLATE BOX
+
+const boxSize = document.getElementById("boxSize");
+const wrapping = document.getElementById("wrapping");
+const customQuantity = document.getElementById("customQuantity");
+const customTotal = document.getElementById("customTotal");
+
+function getCustomPrice() {
+    const basePrice =
+        Number(boxSize.selectedOptions[0].dataset.price);
+
+    const wrapPrice =
+        Number(wrapping.selectedOptions[0].dataset.price);
+
+    const quantity = Math.max(
+        1,
+        Math.min(50, Number(customQuantity.value) || 1)
+    );
+
+    return (basePrice + wrapPrice) * quantity;
+}
+
+function updateCustomTotal() {
+    customTotal.textContent =
+        "₹" + getCustomPrice().toLocaleString("en-IN");
+}
+
+[boxSize, wrapping, customQuantity].forEach(element => {
+    element.addEventListener("input", updateCustomTotal);
+    element.addEventListener("change", updateCustomTotal);
+});
+
+document.getElementById("customForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const quantity = Math.max(
+        1,
+        Math.min(50, Number(customQuantity.value) || 1)
+    );
+
+    customQuantity.value = quantity;
+
+    const type = document.getElementById("chocolateType").value;
+    const size = boxSize.value;
+    const giftWrap = wrapping.value;
+    const message = document.getElementById("personalMessage").value.trim();
+
+    const basePrice =
+        Number(boxSize.selectedOptions[0].dataset.price) +
+        Number(wrapping.selectedOptions[0].dataset.price);
+
+    const description =
+        type + " | " + size + " box | Gift wrap: " + giftWrap +
+        (message ? " | Message: " + message : "");
+
+    addToCart(
+        "Customized Chocolate Box",
+        basePrice,
+        quantity,
+        description
+    );
+
+    openCart();
+});
+
+
+// DEMONSTRATION CHECKOUT / ENQUIRY
+
+document.getElementById("checkoutButton").addEventListener("click", () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty. Add a chocolate first!");
+        return;
+    }
+
+    const lines = cart.map(item =>
+        item.name + " — " + item.quantity +
+        " × ₹" + item.price +
+        (item.description ? " (" + item.description + ")" : "")
+    );
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
+
+    const message =
+        "Hello ChocoHub! I would like to enquire about:\n\n" +
+        lines.join("\n") +
+        "\n\nEstimated total: ₹" + total +
+        "\nPlease confirm availability and delivery details.";
+
+    const whatsappNumber = "91XXXXXXXXXX";
+
+    if (!/^\d{10,15}$/.test(whatsappNumber)) {
+        alert(
+            "Your cart is ready!\n\n" + message +
+            "\n\nTo send this enquiry through WhatsApp, replace " +
+            "91XXXXXXXXXX in the code with your business number."
+        );
+        return;
+    }
+
+    window.open(
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message),
+        "_blank",
+        "noopener,noreferrer"
+    );
+});
+</script>
+
+</body>
+</html>
